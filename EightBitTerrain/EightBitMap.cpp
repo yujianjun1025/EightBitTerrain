@@ -91,15 +91,15 @@ void EightBitMap::InitOrignMap()
 {
 	PadWhiteInOrign();
 
-	PadSegmentBorder(1,			   1, 			  m_nWidth - 2, 1,             DIRECTION[0], m_BOUNDARY_COLOR);
-	PadSegmentBorder(1,			   m_nHeight - 2, m_nWidth - 2, m_nHeight - 2, DIRECTION[0], m_BOUNDARY_COLOR);
-	PadSegmentBorder(1,		       1,			  1,			m_nHeight - 2, DIRECTION[2], m_BOUNDARY_COLOR);
-	PadSegmentBorder(m_nWidth - 2, 1,			  m_nWidth - 2, m_nHeight - 2, DIRECTION[2], m_BOUNDARY_COLOR);
+	PadSegmentBorder(1,	                   1, m_nWidth - 2,             1, DIRECTION[0], m_BOUNDARY_COLOR);
+	PadSegmentBorder(1,	       m_nHeight - 2, m_nWidth - 2, m_nHeight - 2, DIRECTION[0], m_BOUNDARY_COLOR);
+	PadSegmentBorder(1,		           1,	         1, m_nHeight - 2, DIRECTION[2], m_BOUNDARY_COLOR);
+	PadSegmentBorder(m_nWidth - 2,             1, m_nWidth - 2, m_nHeight - 2, DIRECTION[2], m_BOUNDARY_COLOR);
 
-	PadSegmentBorder(0,			   0, 			  m_nWidth - 1, 0,             DIRECTION[0], m_BACKGROUND_COLOR);
-	PadSegmentBorder(0,			   m_nHeight - 1, m_nWidth - 1, m_nHeight - 1, DIRECTION[0], m_BACKGROUND_COLOR);
-	PadSegmentBorder(0,		       0,			  0,			m_nHeight - 1, DIRECTION[2], m_BACKGROUND_COLOR);
-	PadSegmentBorder(m_nWidth - 1, 0,			  m_nWidth - 1, m_nHeight - 1, DIRECTION[2], m_BACKGROUND_COLOR);
+	PadSegmentBorder(0,			   0, m_nWidth - 1,             0, DIRECTION[0], m_BACKGROUND_COLOR);
+	PadSegmentBorder(0,            m_nHeight - 1, m_nWidth - 1, m_nHeight - 1, DIRECTION[0], m_BACKGROUND_COLOR);
+	PadSegmentBorder(0,		           0,	         0, m_nHeight - 1, DIRECTION[2], m_BACKGROUND_COLOR);
+	PadSegmentBorder(m_nWidth - 1,             0, m_nWidth - 1, m_nHeight - 1, DIRECTION[2], m_BACKGROUND_COLOR);
 
 	memcpy(m_pReviseCols,m_pOrignCols,m_nFileLength);
 
@@ -175,7 +175,7 @@ void EightBitMap::RigDowDirToGradual()
      __int16 nX2, nY2, nYNum, nXNum;
 	 __int32 nPiexPos;
 
-	// ×óÏÂ·½Èý½ÇÐÎ
+	// ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	for(nYNum = (m_nHeight - 1); nYNum >= 0; nYNum--) 
 	{
@@ -204,7 +204,7 @@ void EightBitMap::RigDowDirToGradual()
 		}
 	}
 
-	//ÓÒÉÏ·½Èý½ÇÐÎ
+	//ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	for(nXNum = 0; nXNum < m_nWidth - 1; nXNum++)
 	{
@@ -220,7 +220,7 @@ void EightBitMap::RigDowDirToGradual()
 			
 			nPiexPos = nOriY * m_nWidth + nOriX;
 
-		    if(m_pOrignCols[nPiexPos] == m_BOUNDARY_COLOR)
+		        if(m_pOrignCols[nPiexPos] == m_BOUNDARY_COLOR)
 			{
 				if(nY1 != 0)
 				{
@@ -242,7 +242,7 @@ void EightBitMap::LefDowDirToGradual()
 	__int16 nX2, nY2, nYNum, nXNum;
 	__int32 nPiexPos;
 
-	//×óÉÏ·½Èý½ÇÐÎ
+	//ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	for(nXNum = 0; nXNum < m_nWidth; nXNum++)
 	{
@@ -257,7 +257,7 @@ void EightBitMap::LefDowDirToGradual()
 
 			nPiexPos = nOriY * m_nWidth + nOriX;
 
-		    if(m_pOrignCols[nPiexPos] == m_BOUNDARY_COLOR)
+		        if(m_pOrignCols[nPiexPos] == m_BOUNDARY_COLOR)
 			{
 				if(nY1 != 0)
 				{
@@ -272,7 +272,7 @@ void EightBitMap::LefDowDirToGradual()
 		}
 	}
 
-	//ÓÒÏÂ·½Èý½ÇÐÎ
+	//ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	for(nYNum = 1; nYNum < m_nHeight; nYNum++)
 	{
@@ -284,7 +284,7 @@ void EightBitMap::LefDowDirToGradual()
 		{
 			nPiexPos = nOriY * m_nWidth + nOriX;
 
-		    if(m_pOrignCols[nPiexPos] == m_BOUNDARY_COLOR)
+		       if(m_pOrignCols[nPiexPos] == m_BOUNDARY_COLOR)
 			{
 				if(nX1 != m_nWidth - 1)
 				{
@@ -304,8 +304,8 @@ void EightBitMap::LefDowDirToGradual()
 void EightBitMap::AllDirectionToGradual() 
 {
 
-	//Ô­Àí£º ÎÞÂÛÖØÄÄ¸ö·½Ïò½¥±ä£¬¶¼Ñ¡È¡2¸öµã,ÔÚÁ½¸öµãÖ®¼ä½¥±ä,Ö»ÊÇ·½Ïò²»Ò»Ñù£¬
-	//DIRECTION[0],DIRECTION[7],DIRECTION[6],DIRECTION[5]ËÄ¸ö·½Ïò
+	//Ô­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ò½¥±ä£¬ï¿½ï¿½Ñ¡È¡2ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ä½¥ï¿½ï¿½,Ö»ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+	//DIRECTION[0],DIRECTION[7],DIRECTION[6],DIRECTION[5]ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	XDirToGradual();
 	YDirToGradual();
@@ -364,8 +364,8 @@ void EightBitMap::LetMapSmooth(__int8 nSmooths)
 
 			for(int nX = 3; nX < m_nWidth - 3; nX++)
 			{
-			    nPiexPos = 	nBasePos + nX;
-				nSumPiex = m_pReviseCols[nPiexPos];
+				nPiexPos = nBasePos + nX;
+		         	nSumPiex = m_pReviseCols[nPiexPos];
 				
 				for(int k = 0; k < 8; k++)
 				{
