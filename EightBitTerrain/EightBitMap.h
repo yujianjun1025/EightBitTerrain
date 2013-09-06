@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//developer:					yujj										                     //
-//E_mail:						1554548129@qq.com							                     //
-//date:							20121113 - 20121119							                     //
+//developer:				 	yujj										                     //
+//E_mail:					1554548129@qq.com							                     //
+//date:						20121113 - 20121119							                     //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -14,23 +14,23 @@
 
 
 enum SEGMENTSTATE{
-	INCREAS    = 0x00,			//µ¥Ôö¶Î
-	DECREAS    = 0x01,			//µ¥¼õ¶Î
-	PEAK	   = 0x02,			//Í¹¶Î
-	PIT        = 0x04,			//°¼¶Î
-	SPEPIT	   = 0x03,			//ÌØÊâ°¼¶Î,×ÔÉíÎª±³¾°É«
-	INVALID    = 0x05,			//(±¸ÓÃ:ÎÞÐ§¶Î)
+	INCREAS    = 0x00,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	DECREAS    = 0x01,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	PEAK	   = 0x02,			//Í¹ï¿½ï¿½
+	PIT        = 0x04,			//ï¿½ï¿½ï¿½ï¿½
+	SPEPIT	   = 0x03,			//ï¿½ï¿½ï¿½â°¼ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½É«
+	INVALID    = 0x05,			//(ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½Ð§ï¿½ï¿½)
 };
 
 const __int8 DIRECTION[8][2] = {	
-	{ 1,  0},                   //X+  Y0
-	{ 1,  1},                   //X+  Y+
-	{ 0,  1},                   //Y+  X0
-	{-1,  1},                   //X-  Y+
-	{-1,  0},                   //X-  Y0
-	{-1, -1},                   //X-  X-
-	{ 0, -1},                   //Y-  X0
-	{ 1, -1}                    //X+  Y-
+	{ 1,  0},               		//X+  Y0
+	{ 1,  1},                               //X+  Y+
+	{ 0,  1},                               //Y+  X0
+	{-1,  1},                               //X-  Y+
+	{-1,  0},                               //X-  Y0
+	{-1, -1},                               //X-  X-
+	{ 0, -1},                               //Y-  X0
+	{ 1, -1}                                //X+  Y-
 };
 
 
@@ -53,21 +53,21 @@ private:
 class EightBitMap : public virtual PreventEightBitMapInherit<EightBitMap>
 {
 private:
-	const unsigned char			m_RID_COLOR;
-    const unsigned char			m_BOUNDARY_COLOR;
-	const unsigned char			m_BACKGROUND_COLOR; 
+	const unsigned char				m_RID_COLOR;
+    const unsigned char					m_BOUNDARY_COLOR;
+	const unsigned char				m_BACKGROUND_COLOR; 
 	__int32						m_nFileLength;
 	__int16						m_nWidth;
 	__int16						m_nHeight;
-	unsigned char*				m_pOrignCols;
-	unsigned char*				m_pReviseCols;
+	unsigned char*					m_pOrignCols;
+	unsigned char*					m_pReviseCols;
 
 public:
 	explicit					EightBitMap(const char* strFilePath, unsigned char cRidCol = 0xff,unsigned char cBounaryCol = 0xff, unsigned char cBackgroundCol = 0x00);
-								~EightBitMap();						
+							~EightBitMap();						
 private:
-								EightBitMap(const EightBitMap &rhs);
-	EightBitMap&				operator = (const EightBitMap &rhs);
+							EightBitMap(const EightBitMap &rhs);
+	EightBitMap&					operator = (const EightBitMap &rhs);
 
 public:
 	void						AllDirectionToGradual(void);
@@ -84,7 +84,7 @@ private:
 	void						RigDowDirToGradual(void);
 	void						LefDowDirToGradual(void);
 	inline void					LetSegmentGradual(__int16& nX1, __int16& nY1, __int16 nX2, __int16 nY2, const __int8 (&Dir)[2]);
-	inline SEGMENTSTATE			BeSureSegmentState(__int16 nX1, __int16 nY1, __int16 nX2, __int16 nY2, const __int8 (&Dir)[2], unsigned char& bCurClo, unsigned char& bLowClo, unsigned char& bHigClo);
+	inline SEGMENTSTATE				eSureSegmentState(__int16 nX1, __int16 nY1, __int16 nX2, __int16 nY2, const __int8 (&Dir)[2], unsigned char& bCurClo, unsigned char& bLowClo, unsigned char& bHigClo);
 
 };
 
